@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenB",
+						"type": "address"
+					}
+				],
+				"name": "getPair",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "pair",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contact/WTF103/flashloan/Lib.sol": "IUniswapV2Factory"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contact/WTF103/flashloan/Lib.sol": {
+			"keccak256": "0xf5cda612c5e006363aca75ec007fb4f6025406b347a1e15d2f1e9c38de81312f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://22cee0716f0905daad12a8455bb7e23dcbf38de90089b34d10707bb430e1f516",
+				"dweb:/ipfs/QmahA75VpXDLUxbCkdyeGuoCQDa7DYcQduJtYgdb1dPUtQ"
+			]
+		}
+	},
+	"version": 1
+}
