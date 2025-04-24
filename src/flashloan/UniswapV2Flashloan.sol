@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17; 
+pragma solidity ^0.8.17;
 
 import "./Lib.sol";
 
@@ -9,26 +9,29 @@ interface IUniswapV2Callee {
 
 }
 
-contract UniswapV2Floan is IUniswapV2Callee{
+contract UniswapV2Flashloan is IUniswapV2Callee{
 
     //uniswap_v2_factory 地址 正常来说需要在构造方法上作为入参
-    address private constant UNISWAP_V2_FACTORY =
-        0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f;
+    address private immutable UNISWAP_V2_FACTORY;
 
-    //DAI代币地址
-    address private constant DAI = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
-    //WETH代币地址
-    address private constant WETH = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+    address private immutable DAI;
+    address private immutable WETH;
 
-    IUniswapV2Factory private constant factory = IUniswapV2Factory(UNISWAP_V2_FACTORY);
+    IUniswapV2Factory private immutable factory;
 
-    IERC20 private constant weth = IERC20(WETH);
+    IERC20 private immutable weth;
 
     IUniswapV2Pair private immutable pair;
-    
-    constructor(){
+
+    constructor(address _factory,address _adi,address _weth) {
+        UNISWAP_V2_FACTORY = _factory;
+        factory = IUniswapV2Factory(UNISWAP_V2_FACTORY);
+        DAI = _adi;
+        WETH = _weth;
+        weth = IERC20(WETH);
         pair = IUniswapV2Pair(factory.getPair(DAI, WETH));
     }
+
 
     function flashloan(uint wethAmount) external {
         bytes memory data = abi.encode(WETH,wethAmount);
